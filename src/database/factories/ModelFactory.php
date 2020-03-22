@@ -1,8 +1,8 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\User;
+use App\Answer;
+use App\Question;
 use Faker\Generator as Faker;
 
 /*
@@ -16,9 +16,22 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Question::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'question'  => substr($faker->sentences(rand(1, 3), true), 0, -1) . '?',
+        'rank'      => rand(1, 100),
+    ];
+});
+
+$factory->define(Answer::class, function (Faker $faker) {
+    $question = Question::inRandomOrder()->first();
+    if (! $question) {
+        $question = factory(Question::class)->create();
+    }
+
+    return [
+        'question_id' => $question->id,
+        'answer'      => $faker->sentences(rand(1, 3), true),
+        'tags'        => implode(', ', $faker->words(rand(1, 5))),
     ];
 });

@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://localhost:8080/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Answers</h1>
+<!-- START_20ff5884698206eb6955b67989e1e1c3 -->
+<h2>Request paginated list of Answers</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost:8080/answers" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/answers"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "question_id": 411,
+            "answer": "Nisi fugiat magnam adipisci eum aut doloremque.",
+            "tags": [
+                "nam",
+                "repellendus",
+                "quisquam",
+                "nemo"
+            ]
+        },
+        {
+            "id": 2,
+            "question_id": 651,
+            "answer": "Facilis praesentium repellendus architecto optio in.",
+            "tags": [
+                "nam",
+                "maiores",
+                "eaque",
+                "aperiam"
+            ]
+        },
+        {
+            "id": 3,
+            "question_id": 306,
+            "answer": "Est dolores cumque repellendus molestiae beatae ut a sit. Numquam aut velit similique laboriosam.",
+            "tags": [
+                "deleniti",
+                "ab",
+                "aliquid"
+            ]
+        },
+        {
+            "id": 4,
+            "question_id": 187,
+            "answer": "Dolorem magnam debitis hic ut eos aliquid.",
+            "tags": [
+                "eos",
+                "debitis",
+                "velit"
+            ]
+        },
+        {
+            "id": 5,
+            "question_id": 91,
+            "answer": "A eum enim neque consequuntur.",
+            "tags": [
+                "modi",
+                "quos"
+            ]
+        }
+    ],
+    "first_page_url": "http:\/\/localhost:8080\/answers?page=1",
+    "from": 1,
+    "last_page": 5,
+    "last_page_url": "http:\/\/localhost:8080\/answers?page=5",
+    "next_page_url": "http:\/\/localhost:8080\/answers?page=2",
+    "path": "http:\/\/localhost:8080\/answers",
+    "per_page": 20,
+    "prev_page_url": null,
+    "to": 20,
+    "total": 100
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET answers</code></p>
+<!-- END_20ff5884698206eb6955b67989e1e1c3 -->
+<!-- START_9029fcfd53c4bb45b3ae2ec656a3caaf -->
+<h2>Create an Answer and store it</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost:8080/answers" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"question_id":"et","answer":"pariatur","tags":"earum"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/answers"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "question_id": "et",
+    "answer": "pariatur",
+    "tags": "earum"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "question_id": "1",
+    "answer": "Love is food.",
+    "tags": [
+        "tempora",
+        "mushroom",
+        "beans"
+    ],
+    "id": 101
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST answers</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>question_id</code></td>
+<td>required</td>
+<td>optional</td>
+<td>Accepts only an existing ID (integer) in the questions table.</td>
+</tr>
+<tr>
+<td><code>answer</code></td>
+<td>required</td>
+<td>optional</td>
+<td>Accepts a string greater than 5 but less than 3000 characters long.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>optional</td>
+<td>optional</td>
+<td>Accepts a comma delimited string greater than 5 but less than 3000 characters long.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9029fcfd53c4bb45b3ae2ec656a3caaf -->
+<h1>Questions</h1>
+<!-- START_a9a49346cf9a2702ada9239063b41859 -->
+<h2>Request paginated list of Questions</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost:8080/questions?sortBy=rem&amp;sortDirection=suscipit" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/questions"
+);
+
+let params = {
+    "sortBy": "rem",
+    "sortDirection": "suscipit",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "slug": "blanditiis_voluptate",
+            "question": "Blanditiis voluptate laudantium est minus accusantium. Mollitia et qui totam sit temporibus dolor omnis. Vel quia consequuntur sunt non?",
+            "rank": 60,
+            "answers": []
+        },
+        {
+            "id": 2,
+            "slug": "et_voluptas_est_libe",
+            "question": "Et voluptas est libero distinctio modi dolor. Voluptate corporis aut alias et. Eaque perspiciatis sunt incidunt ratione omnis et?",
+            "rank": 10,
+            "answers": []
+        },
+        {
+            "id": 3,
+            "slug": "ut_quaerat_voluptas",
+            "question": "Ut quaerat voluptas dicta ea nihil ut. Labore dolores mollitia omnis velit delectus. Tenetur assumenda ducimus suscipit dolor occaecati?",
+            "rank": 18,
+            "answers": [
+                {
+                    "id": 35,
+                    "question_id": 3,
+                    "answer": "Quia quaerat dolorum aut molestiae qui quasi delectus. Molestiae repudiandae eligendi magni ratione repellat consectetur quaerat. Vero autem ex praesentium dolor sint modi.",
+                    "tags": [
+                        "rem"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "slug": "illum_corporis_quasi",
+            "question": "Illum corporis quasi et animi omnis magni quia veritatis. Corporis repudiandae rerum rerum veniam. Explicabo perferendis dicta voluptatem numquam iste?",
+            "rank": 45,
+            "answers": []
+        },
+        {
+            "id": 19,
+            "slug": "tempore_velit_blandi",
+            "question": "Tempore velit blanditiis architecto consectetur voluptatem. Nemo consequuntur nihil reprehenderit id aliquid aliquid. Quia atque sit quod molestiae earum?",
+            "rank": 35,
+            "answers": []
+        },
+        {
+            "id": 20,
+            "slug": "et_nesciunt_modi_qui",
+            "question": "Et nesciunt modi quia error. Sed molestiae nemo corporis quam aut. Ratione maxime hic nihil?",
+            "rank": 45,
+            "answers": [
+                {
+                    "id": 28,
+                    "question_id": 20,
+                    "answer": "Distinctio consectetur architecto quos at illum odit. Qui atque repellendus optio ut labore consequuntur eos omnis.",
+                    "tags": [
+                        "et",
+                        "est",
+                        "quidem",
+                        "dicta",
+                        "corrupti"
+                    ]
+                }
+            ]
+        }
+    ],
+    "first_page_url": "http:\/\/localhost:8080\/questions?page=1",
+    "from": 1,
+    "last_page": 50,
+    "last_page_url": "http:\/\/localhost:8080\/questions?page=50",
+    "next_page_url": "http:\/\/localhost:8080\/questions?page=2",
+    "path": "http:\/\/localhost:8080\/questions",
+    "per_page": 20,
+    "prev_page_url": null,
+    "to": 20,
+    "total": 1000
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET questions</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sortBy</code></td>
+<td>optional</td>
+<td>optional Sort by anything, only 'rank' currently supported.</td>
+</tr>
+<tr>
+<td><code>sortDirection</code></td>
+<td>optional</td>
+<td>optional Sort direction, ASC (default) or DESC.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a9a49346cf9a2702ada9239063b41859 -->
+<!-- START_a686c2d54be536fb3d5e4ad3a0bca081 -->
+<h2>Create a Question and store it</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://localhost:8080/questions" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"question":"est"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8080/questions"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "question": "est"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "question": "What is love?",
+    "rank": 102,
+    "slug": "what_is_love",
+    "id": 1002
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST questions</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>question</code></td>
+<td>required</td>
+<td>optional</td>
+<td>Accepts a string greater than 5 but less than 3000 characters long.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_a686c2d54be536fb3d5e4ad3a0bca081 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

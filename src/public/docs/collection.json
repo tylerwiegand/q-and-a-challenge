@@ -1,0 +1,148 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Vehicle History Q&A Challenge API",
+        "_postman_id": "a3627665-22f5-4bba-9342-c9d792552640",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Answers",
+            "description": "",
+            "item": [
+                {
+                    "name": "Request paginated list of Answers",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8080",
+                            "path": "answers",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create an Answer and store it",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8080",
+                            "path": "answers",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"question_id\": \"et\",\n    \"answer\": \"pariatur\",\n    \"tags\": \"earum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Questions",
+            "description": "",
+            "item": [
+                {
+                    "name": "Request paginated list of Questions",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8080",
+                            "path": "questions",
+                            "query": [
+                                {
+                                    "key": "sortBy",
+                                    "value": "rem",
+                                    "description": "optional Sort by anything, only 'rank' currently supported.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sortDirection",
+                                    "value": "suscipit",
+                                    "description": "optional Sort direction, ASC (default) or DESC.",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create a Question and store it",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8080",
+                            "path": "questions",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"question\": \"est\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}
