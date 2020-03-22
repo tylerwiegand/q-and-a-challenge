@@ -194,6 +194,11 @@ docker-compose exec php php /var/www/html/artisan migrate:fresh --seed
 
 Then you should be able to navigate to `localhost:8080/answers` and `localhost:8080/questions`.
 
+## Tests
+
+Navigate to the /src directory and run `vendor/bin/phpunit`
+There should be 16 tests and 44 assertions.
+
 # Why isn't this made in Symfony?!
 
 When I spoke with Cristi (spelling?) he mentioned I could do the code challenge in Laravel. Lumen is a lightweight microframework based on Laravel, and since he also mentioned a lot of the work done was related to Microservices, it seemed like a better fit than the full Laravel framework.
