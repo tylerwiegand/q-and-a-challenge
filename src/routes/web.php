@@ -11,6 +11,10 @@
 |
 */
 
+$router->get('/', function () {
+    return redirect('/docs/index.html');
+});
+
 $router->get('/questions', 'QuestionController@index');
 $router->post('/questions', 'QuestionController@store');
 
