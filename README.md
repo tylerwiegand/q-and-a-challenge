@@ -179,6 +179,10 @@ QUEUE_CONNECTION=sync
 
 </details>
 
+## Composer install
+
+In the `/src` directory, run `composer install`.
+
 ## Initialize Docker
 
 ```bash
