@@ -1,6 +1,7 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use App\Answer;
 use App\Question;
 use Faker\Generator as Faker;
@@ -25,13 +26,13 @@ $factory->define(Question::class, function (Faker $faker) {
 
 $factory->define(Answer::class, function (Faker $faker) {
     $question = Question::inRandomOrder()->first();
-    if (! $question) {
+    if (!$question) {
         $question = factory(Question::class)->create();
     }
 
     return [
         'question_id' => $question->id,
         'answer'      => $faker->sentences(rand(1, 3), true),
-        'tags'        => implode(', ', $faker->words(rand(1, 5))),
+        'tags'        => implode(', ', $faker->words(rand(0, 5))),
     ];
 });

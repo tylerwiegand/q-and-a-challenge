@@ -48,7 +48,11 @@ class AnswerController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $answer = Answer::create($request->all());
+        $answer = Answer::create([
+            'question_id' => $request->question_id,
+            'answer'      => $request->answer,
+            'tags'        => $request->tags,
+        ]);
 
         return response()->json($answer, 201);
     }
